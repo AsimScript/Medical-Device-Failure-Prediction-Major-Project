@@ -1,24 +1,79 @@
-# Medical Device Failure Prediction System
+# NeuroIgnite — Medical Equipment Failure Prediction
 
-An end-to-end system designed to predict medical device failures using machine learning and a modern web-based interface.
-
-## 🚀 Project Overview
-
-This system helps hospital admins predict the likelihood of medical device failures by providing a user-friendly dashboard. It integrates machine learning models, a backend API, and a web-based frontend to deliver real-time predictions and insights.
+**One-line summary:**  
+Predictive maintenance system for hospital equipment using an XGBoost machine learning model to reduce downtime and maintenance costs.
 
 ---
 
-## ⚙️ Architecture Overview
+## 🎥 Demo
+- **YouTube Demo (3–6 min):** [https://youtu.be/-Cn62CdDh14](https://youtu.be/-Cn62CdDh14)  
+- *(If live demo unavailable, see video above — due to Railway free-tier expiry)*
 
-```plaintext
-Hospital Admin
-      ↓
-Frontend (React + TailwindCSS)
-      ↓
-Backend (Node.js + Express.js + MongoDB)
-      ↓
-FastAPI for ML Model Serving
-      ↓
-Machine Learning Models (Scikit-Learn, XGBoost)
-      ↓
-Data Integration (Device Data from IoT or Databases)
+---
+
+## 🧰 Tech Stack
+
+| Layer | Technology |
+|--------|-------------|
+| **Frontend** | React.js, Tailwind CSS |
+| **Backend** | Node.js, Express.js |
+| **ML Service** | Python, FastAPI, Scikit-learn, XGBoost |
+| **Database** | MongoDB |
+| **Hosting** | Railway (Backend & ML), Vercel (Frontend) |
+
+---
+
+## 🏗️ Architecture
+
+See `ARCHITECTURE.png` (attached in folder).
+
+### Key Components
+1. **Frontend (React + Tailwind)** – Hospital admin dashboard for predictions and history.  
+2. **Backend (Node.js + Express)** – API layer for data flow and authentication.  
+3. **ML Microservice (FastAPI + XGBoost)** – Predicts probability of equipment failure.  
+4. **Database (MongoDB)** – Stores device info, logs, and prediction history.  
+5. **Deployment (Railway + Vercel)** – Deployed via CI/CD pipelines from GitHub.
+
+---
+
+## 🚀 Core Features
+1. Predicts equipment failure probability based on operational data.  
+2. Displays prediction history for trend monitoring.  
+3. User-friendly dashboard for hospital admins.  
+4. API integration between Node.js backend and FastAPI model.  
+5. Quick deployment via Railway and Vercel for cost-effective hosting.
+
+**Trade-offs:**  
+- Accuracy depends on dataset quality and size.  
+- Real-time IoT integration is a planned improvement.
+
+---
+
+## ⚙️ Setup & Run (Local)
+
+### 1. Clone the repository
+```bash
+git clone <your-repo-url>
+cd NeuroIgnite
+2. Backend Setup
+bash
+Copy code
+cd backend
+npm install
+cp .env.example .env
+npm start
+3. ML Service Setup
+
+cd ../ml_service
+python -m venv venv
+venv\Scripts\activate    
+pip install -r requirements.txt
+uvicorn app:app --reload --port 8000
+4. Frontend Setup
+bash
+Copy code
+cd ../frontend
+npm install
+npm run dev
+
+
